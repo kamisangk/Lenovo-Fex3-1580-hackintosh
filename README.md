@@ -11,24 +11,40 @@
 |  网络适配器 |   Realtek PCIe GBE Family Controller|
 |  WiFi | 	Intel(R) Dual Band Wireless-AC 3168  |
 # 二、安装之前BIOS设置
--Disabled discrete GPU  
--Disabled Intel Virtualization  
--Disabled Intel Platform Trust Technology  
--Disabled Secure Boot  
--Boot MODE → Legacy Support  
+	-Disabled discrete GPU  
+	-Disabled Intel Virtualization  
+	-Disabled Intel Platform Trust Technology  
+	-Disabled Secure Boot  
+	-Boot MODE → Legacy Support  
 # 三、运行状态
 ## 正常运行列表
-1. 显卡HD520驱动正常，注入ID 0x19160000  
-2. 声卡ALC236驱动正常，注入ID 16  
-3. 键盘触摸板正常，均为PS2设备  
-4. usb正常，usbinjectall.kext+ssdt_uiac.aml定制  
-5. HDMI输出正常  
-6. 睡眠唤醒正常  
-7. 原生电源管理  
-8. 亮度调节  
+	显卡HD520驱动正常，注入ID 0x19160000  
+	声卡ALC236驱动正常，注入ID 16  
+	键盘触摸板正常，均为PS2设备  
+	usb正常，usbinjectall.kext+ssdt_uiac.aml定制  
+	HDMI输出正常  
+	睡眠唤醒正常  
+	原生电源管理  
+	亮度调节  
 ## 不正常运行列表
-1. Intel 网卡WiFi蓝牙全球无解  
-2. sd读卡器  
+	Intel 网卡WiFi蓝牙全球无解  
+	sd读卡器  
+# 四、DSDT补丁
+## 对DSDT打下列补丁  
+	Fix system_HPET  
+	Fix system_IMEI  
+	Fix system_IRQ  
+	sys system_OSYS_win10  
+	Fix system_WAK Arg0 V2  
+	Fix system_RTC 
+	Fix system_SMBUS  
+	Fix system_PNOT/PPNT  
+	Fix usb_prw_0x6d_xhc  
+	Fix Mutex with non-zero synclevel  
+
 ## 四、备注
-1. 内存报错需要在smbios添加内存信息才能成功进入clover界面安装。  
+	 内存报错需要在smbios添加内存信息才能成功进入clover界面安装。  
+	 
+
+
 
